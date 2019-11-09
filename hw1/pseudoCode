@@ -50,29 +50,29 @@ smallMat(size, mat1, mat2)
 			在column與row增加一行zero vector;
 		 
 		(將mat1, mat2拆為4個newSize的Martix);
-			   [mat1A | mat1B]
-		mat1 = [------+------]
-			   [mat1C | mat1D];
+			[mat1A | mat1B]
+		mat1 = 	[------+------]
+			[mat1C | mat1D];
 			   
-			   [mat2A | mat2B]
-		mat2 = [------+------]
-			   [mat2C | mat2D];
+			[mat2A | mat2B]
+		mat2 = 	[------+------]
+			[mat2C | mat2D];
 		
 		for i = 0 --> newSize - 1, j = 0 --> newSize - 1
 			mat = smallMat(newSize, mat1A, mat2A)
-				+ smallMat(newSize, mat1B, mat2C);
+			    + smallMat(newSize, mat1B, mat2C);
 		
 		for i = 0 --> newSize - 1, j = newSize --> size
 			mat = smallMat(newSize, mat1A, mat2B)
-				+ smallMat(newSize, mat1B, mat2D);
+			    + smallMat(newSize, mat1B, mat2D);
 
 		for i = newSize --> size, j = 0 --> newSize - 1
 			mat = smallMat(newSize, mat1C, mat2A)
-				+ smallMat(newSize, mat1D, mat2C);
+			    + smallMat(newSize, mat1D, mat2C);
 		
 		for i = newSize --> size, j = newSize --> size
 			mat = smallMat(newSize, mat1C, mat2B)
-				+ smallMat(newSize, mat1D, mat2D);
+			    + smallMat(newSize, mat1D, mat2D);
 					  
 	return mat;
 	
